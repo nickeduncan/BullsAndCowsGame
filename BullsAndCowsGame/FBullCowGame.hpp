@@ -36,7 +36,7 @@ class FBullCowGame
 
         bool CheckGuessValidity(std::string); // TODO: make a more rich return value.
         void Reset(); // TODO: make a more rich return value.
-        BullCowCount SubmitGuess(FString);
+        FBullCowCount SubmitGuess(FString Guess);
 
 
     // please try and ignore this and focus on the interface above ^^
