@@ -26,7 +26,7 @@ void FBullCowGame::Reset()
 
     const FString HIDDEN_WORD = "planet";
     MyHiddenWord = HIDDEN_WORD;
-    
+
     MyCurrentTry = 1;
     return;
 }
@@ -41,15 +41,25 @@ bool FBullCowGame::CheckGuessValidity(std::string)
     return false;
 }
 
-// receivees a VALID guess, increments turn, and returns count
-BullCowCount FBullCowGame::SubmitGuess(FString)
+// receives a VALID guess, increments turn, and returns count
+FBullCowCount FBullCowGame::SubmitGuess(FString)
 {
   // increment the turn number
   MyCurrentTry++;
 
   // setup a return variable
-  BullCowCount BullCowCount;
+  FBullCowCount BullCowCount;
   // loop through all letters in the guess
+  int32 HiddenWordLength = MyHiddenWord.length();
+  for (int32 i = 0; i < HiddenWordLength; i++) {
     // compare letters against the hidden word
-  return BullCowCount;
+    for (int32 j = 0; j < HiddenWordLength; j++) {
+      // if they match then
+        // if they're in the place
+          // increment bulls
+        // else
+          // increment cows
+        }
+      }
+      return BullCowCount;
 }
