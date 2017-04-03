@@ -23,8 +23,9 @@ class FBullCowGame {
         int GetCurrentTry() const;
         bool IsGameWon() const;
     
-        bool CheckGuessValidity(std::string);
+        bool CheckGuessValidity(std::string); // TODO: make a more rich return value.
         void Reset(); // TODO: make a more rich return value.
+        // provide a method for counting bulls and cows, and increasing try #
         
         
         
