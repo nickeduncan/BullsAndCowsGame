@@ -6,17 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BullsAndCowsGame/main.cpp"
-            timestampString = "512883452.749707"
+            filePath = "BullsAndCowsGame/FBullCowGame.cpp"
+            timestampString = "512920383.403827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "PlayGame()"
-            landmarkType = "9">
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "FBullCowGame::SubmitGuess(FString Guess)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
