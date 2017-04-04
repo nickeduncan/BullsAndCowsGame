@@ -41,13 +41,13 @@ class FBullCowGame
 
     int32 GetMaxTries() const;
     int32 GetCurrentTry() const;
-    int32 GetHiddenWordLength() const;
+    int32 GetWordLength() const;
 
     bool IsGameWon() const;
     EGuessStatus CheckGuessValidity(FString) const;
 
     void Reset(); // TODO: make a more rich return value.
-    FBullCowCount SubmitGuess(FString);
+    FBullCowCount SubmitValidGuess(FString);
 
 
   // please try and ignore this and focus on the interface above ^^
