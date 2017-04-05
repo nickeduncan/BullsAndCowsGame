@@ -15,7 +15,7 @@ FText GetValidGuess();
 void PrintGameSummary();
 bool AskToPlayAgain();
 
-FBullCowGame BCGame; // instantiate a new game
+FBullCowGame BCGame = FBullCowGame(6); // instantiate a new game
 
 // the entry point to our application
 int main()
@@ -49,17 +49,48 @@ void PrintIntro()
   return;
 }
 
-void GetDifficulty()
+inline bool isInteger(const FString & s)
 {
-  FText Difficulty = "";
-  std::cout << "Would like a 3, 4, 5, or 6 letter word?" << '\n'; // display word lengths
-  // ask user to choose difficulty
-  // take user's input
+    if (s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false;
+
+    char * p;
+    strtol(s.c_str(), &p, 10);
+
+    return (*p == 0);
+}
+
+int GetDesiredWordLength()
+{
+    int minLength = 3;
+    int maxLength = 6;
+    int WordLength = 5;
+    const int32 maxInvalidTries = 10;
+    std::cout << "How long would you like the mystery word to be? Enter a number between " << minLength << " and " << maxLength << ":\n";
+    int Attempts = 0;
+    while (Attempts < maxInvalidTries) {
+        FText input;
+        std::getline(std::cin, input);
+        if (!isInteger(input)) {
+            std::cout << "\n could not convert input into a whole number, please try again\n";
+        }else{
+            char *p;
+            long i = strtol(input.c_str(), &p, 10);
+            if (i < minLength || i > maxLength) {
+                std::cout << "\n number was not between " << minLength << " and " << maxLength << ", please try again\n";
+            }else {
+                WordLength = i;
+                break;
+            }
+        }
+        Attempts++;
+    }
+    return WordLength;
 }
 
 void PlayGame()
 {
-  BCGame.Reset();
+  int wordLength = GetDesiredWordLength();
+  BCGame.Reset(wordLength);
   int32 MaxTries = BCGame.GetMaxTries();
 
   // looop asking for guess while the game is NOT won
@@ -125,7 +156,7 @@ void PrintGameSummary()
 
 bool AskToPlayAgain()
 {
-  std::cout << "Do you want to play again with the same hidden word (y/n)?";
+  std::cout << "Do you want to play again (y/n)?";
   FText Response = "";
   std::getline(std::cin, Response);
   return (Response[0] == 'y' || Response[0] == 'Y');

@@ -7,12 +7,16 @@
 //
 
 #include "FBullCowGame.hpp"
+#include <iostream>
 #include <map>
 #define TMap std::map
 
 using int32 = int;
 
-FBullCowGame::FBullCowGame() { Reset(); } // defaut constructor
+FBullCowGame::FBullCowGame(int wordLength)
+{
+  Reset(wordLength);
+} // defaut constructor
 
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetWordLength() const { return MyHiddenWord.length(); }
@@ -20,14 +24,77 @@ bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
 int32 FBullCowGame::GetMaxTries() const
 {
-  TMap<int32, int32> WordLengthToMaxTries { {3,5}, {4,5}, {5,6}, {6,5} };
+  TMap<int32, int32> WordLengthToMaxTries { {3,4}, {4,7}, {5,10}, {6,15} };
   return WordLengthToMaxTries[MyHiddenWord.length()];
 }
 
-void FBullCowGame::Reset()
+void FBullCowGame::Reset(int wordLength)
 {
-  const FString HIDDEN_WORD = "duck";
-  MyHiddenWord = HIDDEN_WORD;
+  TMap<int, TMap<int, FString>> isogramListByWordLength = {
+    {
+        3,{
+            { 0,"low" },
+            { 1,"sin" },
+            { 2,"tin" },
+            { 3,"bin" },
+            { 4,"gin" },
+            { 5,"fin" },
+            { 6,"bat" },
+            { 7,"cat" },
+            { 8,"mat" },
+            { 9,"fat" }
+        }
+    },
+    {
+        4,{
+            { 0,"crys" },
+            { 1,"plan" },
+            { 2,"clan" },
+            { 3,"sang" },
+            { 4,"sort" },
+            { 5,"torn" },
+            { 6,"tows" },
+            { 7,"sewn" },
+            { 8,"born" },
+            { 9,"yawn" },
+            { 10,"hues" }
+        }
+    },
+    {
+        5,{
+            { 0,"plane" },
+            { 1,"crane" },
+            { 2,"train" },
+            { 3,"slain" },
+            { 4,"align" },
+            { 5,"night" },
+            { 6,"bites" },
+            { 7,"dawns" },
+            { 8,"yawns" },
+            { 9,"warns" }
+        }
+
+    },
+    {
+        6,{
+            { 0,"planet" },
+            { 1,"planes" },
+            { 2,"cranes" },
+            { 3,"cringe" },
+            { 4,"singed" },
+            { 5,"trains" },
+            { 6,"clawed" },
+            { 7,"thawed" },
+            { 8,"things" },
+            { 9,"ignore" },
+            { 10,"planks" },
+            { 11,"thanks" }
+        }
+    }
+  };
+  FString HIDDEN_WORD = "planet";
+  TMap<int, FString> availableWords = isogramListByWordLength[wordLength];
+  MyHiddenWord = availableWords[rand()%availableWords.size()];
 
   MyCurrentTry = 1;
   bGameIsWon = false;
