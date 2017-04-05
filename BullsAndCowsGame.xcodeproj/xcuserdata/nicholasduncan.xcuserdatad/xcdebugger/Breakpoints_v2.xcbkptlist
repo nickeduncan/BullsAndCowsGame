@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "PlayGame()"
+            landmarkName = "GetDifficulty()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
