@@ -36,8 +36,15 @@ int main()
 // introduce the game
 void PrintIntro()
 {
-  std::cout << "\n\nWelcome to Bulls and Cows, a fun word game.\n";
-  std::cout << "Can you guess what " << BCGame.GetWordLength();
+  std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+  std::cout << std::endl;
+  std::cout << "          }   {         ___ " << std::endl;
+  std::cout << "          (o o)        (o o) " << std::endl;
+  std::cout << "   /-------\\ /          \\ /-------\\ " << std::endl;
+  std::cout << "  / | BULL |O            O| COW  | \\ " << std::endl;
+  std::cout << " *  |-,--- |              |------|  * " << std::endl;
+  std::cout << "    ^      ^              ^      ^ " << std::endl;
+  std::cout << std::endl;  std::cout << "Can you guess what " << BCGame.GetWordLength();
   std::cout << " letter isogram I'm thinking of?\n\n";
   return;
 }
@@ -83,7 +90,7 @@ FText GetValidGuess()
         std::cout << "Please enter a " << BCGame.GetWordLength() << " letter word.\n\n";
         break;
       case EGuessStatus::Not_Isogram:
-        std::cout << "Please enter a word without repeat letters.\n\n";
+        std::cout << "Please enter a word without repeating letters.\n\n";
         break;
       case EGuessStatus::Not_Lowercase:
         std::cout << "Please use lowercase letters.\n\n";
