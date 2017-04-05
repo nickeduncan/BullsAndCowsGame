@@ -54,7 +54,6 @@ class FBullCowGame
   private:
     // see constructor for initiailization
     int32 MyCurrentTry;
-    int32 MyMaxTries;
     FString MyHiddenWord;
     bool bGameIsWon;
 

@@ -20,17 +20,17 @@ FBullCowGame BCGame; // instantiate a new game
 // the entry point to our application
 int main()
 {
+  bool bPlayAgain = false;
 
-    bool bPlayAgain = false;
-    do
-    {
-        PrintIntro();
-        PlayGame();
-        bPlayAgain = AskToPlayAgain();
-    }
-    while(bPlayAgain);
+  do
+  {
+      PrintIntro();
+      PlayGame();
+      bPlayAgain = AskToPlayAgain();
+  }
+  while(bPlayAgain);
 
-    return 0; // exit application
+  return 0; // exit application
 }
 
 // introduce the game
@@ -47,6 +47,14 @@ void PrintIntro()
   std::cout << std::endl;  std::cout << "Can you guess what " << BCGame.GetWordLength();
   std::cout << " letter isogram I'm thinking of?\n\n";
   return;
+}
+
+void GetDifficulty()
+{
+  FText Difficulty = "";
+  std::cout << "Would like a 3, 4, 5, or 6 letter word?" << '\n'; // display word lengths
+  // ask user to choose difficulty
+  // take user's input
 }
 
 void PlayGame()
