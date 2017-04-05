@@ -13,12 +13,16 @@
 
 #endif /* FBullCowGame_hpp */
 
+/* The game logic (no view code or direct user interaciton)
+The game is a simple guess the word game based on mastermind */
+
+#pragma once
 #include <string>
 
+// to make syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
-// all values initialized to zero
 struct FBullCowCount
 {
   int32 Bulls = 0;
@@ -34,6 +38,7 @@ enum class EGuessStatus
   Not_Lowercase
 };
 
+
 class FBullCowGame
 {
   public:
@@ -46,7 +51,7 @@ class FBullCowGame
 
     EGuessStatus CheckGuessValidity(FString) const;
 
-    void Reset(); // TODO: make a more rich return value.
+    void Reset();
     FBullCowCount SubmitValidGuess(FString);
 
 
