@@ -42,8 +42,8 @@ class FBullCowGame
     int32 GetMaxTries() const;
     int32 GetCurrentTry() const;
     int32 GetWordLength() const;
-
     bool IsGameWon() const;
+
     EGuessStatus CheckGuessValidity(FString) const;
 
     void Reset(); // TODO: make a more rich return value.
@@ -56,4 +56,7 @@ class FBullCowGame
     int32 MyCurrentTry;
     int32 MyMaxTries;
     FString MyHiddenWord;
+    bool bGameIsWon;
+
+    bool IsIsogram(FString) const;
 };
