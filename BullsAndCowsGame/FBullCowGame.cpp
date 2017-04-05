@@ -65,7 +65,7 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
   int32 WordLength = MyHiddenWord.length(); // assuming same length as guess
   for (int32 GChar = 0; GChar < WordLength; GChar++)
   {
-    // compare letters against the guess
+    //  compare letters against the guess
     for (int32 MHWChar = 0; MHWChar < WordLength; MHWChar++)
     {
       // if they match then
