@@ -38,7 +38,7 @@ void PrintIntro()
 {
   std::cout << "\n\nWelcome to Bulls and Cows, a fun word game.\n";
   std::cout << "Can you guess what " << BCGame.GetWordLength();
-  std::cout << " letter isogram I'm thinking of?\n";
+  std::cout << " letter isogram I'm thinking of?\n\n";
   return;
 }
 
@@ -72,7 +72,8 @@ FText GetValidGuess()
   {
 
     int32 CurrentTry = BCGame.GetCurrentTry();
-    std::cout << "Try " << CurrentTry << ". Enter your guess: ";
+    std::cout << "Try " << CurrentTry << " of " << BCGame.GetMaxTries();
+    std::cout << ". Enter your guess: ";
     std::getline(std::cin, Guess);
 
     Status = BCGame.CheckGuessValidity(Guess);
@@ -85,7 +86,7 @@ FText GetValidGuess()
         std::cout << "Please enter a word without repeat letters.\n\n";
         break;
       case EGuessStatus::Not_Lowercase:
-        std::cout << "Please use lowercase letters." << '\n\n';
+        std::cout << "Please use lowercase letters.\n\n";
         break;
       default:
         // assume the guess is valid
