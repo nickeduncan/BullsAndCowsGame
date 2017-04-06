@@ -44,8 +44,10 @@ void PrintIntro()
   std::cout << "  / | BULL |O            O| COW  | \\ " << std::endl;
   std::cout << " *  |-,--- |              |------|  * " << std::endl;
   std::cout << "    ^      ^              ^      ^ " << std::endl;
+  std::cout << std::endl; std::cout << "A Bull is the right letter in the right place." << '\n';
+  std::cout << "\t A Cow is the right letter in the wrong place." << '\n';
   std::cout << std::endl;  std::cout << "Can you guess what " << BCGame.GetWordLength();
-  std::cout << " letter isogram I'm thinking of?\n\n";
+  std::cout << " letter isogram (word with no repeating letters) I'm thinking of?\n\n";
   return;
 }
 
