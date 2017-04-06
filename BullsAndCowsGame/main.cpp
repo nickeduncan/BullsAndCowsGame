@@ -153,7 +153,7 @@ void PrintGameSummary()
   else
   {
     std::cout << "Sorry, you ran out of turns..." << '\n';
-      std::cout << "The word was " << BCGame.MyHiddenWord << '\n\n';
+      std::cout << "The word was " << BCGame.MyHiddenWord << std::endl;
   }
 }
 
