@@ -45,9 +45,8 @@ void PrintIntro()
   std::cout << " *  |-,--- |              |------|  * " << std::endl;
   std::cout << "    ^      ^              ^      ^ " << std::endl;
   std::cout << std::endl; std::cout << "A Bull is the right letter in the right place." << '\n';
-  std::cout << "\t A Cow is the right letter in the wrong place." << '\n';
-  std::cout << std::endl;  std::cout << "Can you guess what " << BCGame.GetWordLength();
-  std::cout << " letter isogram (word with no repeating letters) I'm thinking of?\n\n";
+  std::cout << "\t A Cow is the right letter in the wrong place.\n\n";
+  std::cout << "Can you guess what isogram (word with no repeating letters) I'm thinking of?\n\n";
   return;
 }
 
@@ -72,6 +71,7 @@ int GetDesiredWordLength()
     while (Attempts < maxInvalidTries) {
         FText input;
         std::getline(std::cin, input);
+        std::cout << std::endl;
         if (!isInteger(input)) {
             std::cout << "\n could not convert input into a whole number, please try again\n";
         }else{
@@ -153,6 +153,7 @@ void PrintGameSummary()
   else
   {
     std::cout << "Sorry, you ran out of turns..." << '\n';
+      std::cout << "The word was " << BCGame.MyHiddenWord << '\n\n';
   }
 }
 

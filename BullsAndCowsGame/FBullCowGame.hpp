@@ -42,6 +42,7 @@ class FBullCowGame
     int32 GetMaxTries() const;
     int32 GetCurrentTry() const;
     int32 GetWordLength() const;
+    FString MyHiddenWord;
     bool IsGameWon() const;
 
     EGuessStatus CheckGuessValidity(FString) const;
@@ -54,7 +55,6 @@ class FBullCowGame
   private:
     // see constructor for initiailization
     int32 MyCurrentTry;
-    FString MyHiddenWord;
     bool bGameIsWon;
 
     bool IsIsogram(FString) const;
